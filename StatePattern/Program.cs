@@ -1,7 +1,15 @@
-﻿internal class Program
+﻿using StatePattern.Class;
+using System.Diagnostics.Tracing;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        var acceptedState  =new AcceptedState();
+        var request = new LoanRequest();
+        request.State = acceptedState; 
+        request.Accept();
+
+        Console.WriteLine(request.State);
     }
 }
